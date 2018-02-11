@@ -9,11 +9,11 @@
             </div>
             <!-- /.box-header -->
             <!-- form start -->
-            <form class="form-horizontal" action="<?php echo site_url('material/save');?>" method="post" >
+            <form class="form-horizontal" action="<?php echo site_url('material/update');?>" method="post" >
               <div class="box-body">
                 <div class="form-group">
                   <label for="inputEmail3" class="col-sm-2 control-label">Name</label>
-
+                  <input required name="id" value="<?php echo $material->id?>" class="form-control" id="inputEmail3" placeholder="Name" type="hidden">
                   <div class="col-sm-10">
                     <input required name="name" value="<?php echo $material->name?>" class="form-control" id="inputEmail3" placeholder="Name" type="text">
                   </div>

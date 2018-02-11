@@ -66,7 +66,21 @@ class Material extends CI_Controller {
 
 	public function update()
 	{
-		$this->load->view('material');
+		$this->load->model('MaterialModel'); 
+		$id = $this->input->post('id');
+		$name = $this->input->post('name');
+		$unit = $this->input->post('unit');
+		$type = $this->input->post('type');
+		$buying_price = $this->input->post('buying_price');
+
+		   $data = array(
+			  'unit' => $unit,
+					 'type' => $type,
+			  'name' => $name,
+			  'buying_price' => $buying_price
+		   );
+	 $this->MaterialModel->update($data, $id);
+	 redirect('/material', 'refresh');
 	}
 
 	public function delete($id = NULL)
