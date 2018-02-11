@@ -21,23 +21,25 @@ class Partner extends CI_Controller {
 
 	 function __construct() {
               parent::__construct();
-              $this->load->helper('url');
-              $this->load->database();
+							$this->load->model('PartnerModel');
+
+
            }
 	public function index()
 	{
-		$this->load->view('partner');
+		$result = $this->PartnerModel->findAll();
+				$data['partners'] = $result;
+				$this->load->view('partner', $data);
 	}
 
 	public function insert()
 	{
-         $this->load->model('MaterialModel');
         	$data = array(
                'unit' => "2",
                       'type' => "2",
                'name' => "batu"
             );
-      $this->MaterialModel->insert($data);
+      $this->PartnerModel->insert($data);
 	}
 
 	public function edit()
