@@ -1,7 +1,7 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class Customer extends CI_Controller {
+class Project extends CI_Controller {
 
 	/**
 	 * Index Page for this controller.
@@ -21,30 +21,33 @@ class Customer extends CI_Controller {
 
 	 function __construct() {
               parent::__construct();
+							$this->load->model('ProjectModel');
 							$this->load->model('CustomerModel');
            }
 	public function index(){
-		$result = $this->CustomerModel->findAll();
-		$data['customers'] = $result;
-		$this->load->view('customer/customer', $data);
+		$result = $this->ProjectModel->findAll();
+		$data['projects'] = $result;
+		$this->load->view('project/project', $data);
  }
 
  public function new(){
-	 $this->load->view('customer/customerNew');
+ 	 $customers = $this->CustomerModel->findAll();
+	 $data['customers'] = $customers;
+	 $this->load->view('project/projectNew', $data);
 }
 
 
 	public function insert(){
     $post = $this->input->post();
 
-		$data['name'] = $post['name'];
-		$data['address'] = $post['address'];
-		$data['hp'] = $post['hp'];
-		$data['email'] = $post['email'];
-		$data['acc_bank'] = $post['acc_bank'];
+		$data['project_name'] = $post['project_name'];
+		$data['term'] = $post['term'];
+		$data['est_duration'] = $post['est_duration'];
+		$data['est_profit'] = $post['est_profit'];
+		$data['customer_id'] = $post['customer_id'];
 
-    $this->CustomerModel->insert($data);
-		redirect('/customer');
+    $this->ProjectModel->insert($data);
+		redirect('/project');
 	}
 
 

@@ -1,7 +1,7 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class Partner extends CI_Controller {
+class Purchase extends CI_Controller {
 
 	/**
 	 * Index Page for this controller.
@@ -21,25 +21,24 @@ class Partner extends CI_Controller {
 
 	 function __construct() {
               parent::__construct();
-							$this->load->model('PartnerModel');
-
-
+							$this->load->model('PurchaseModel');
            }
-	public function index()
-	{
-		$result = $this->PartnerModel->findAll();
-				$data['partners'] = $result;
-				$this->load->view('Partner', $data);
-	}
+	public function index(){
+		$result = $this->supplierModel->findAll();
+		$data['purchases'] = $result;
+		$this->load->view('purchase', $data);
+ }
 
-	public function insert($data)
+
+	public function insert()
 	{
+         $this->load->model('MaterialModel');
         	$data = array(
                'unit' => "2",
                       'type' => "2",
                'name' => "batu"
             );
-      $this->PartnerModel->insert($data);
+      $this->MaterialModel->insert($data);
 	}
 
 	public function edit()

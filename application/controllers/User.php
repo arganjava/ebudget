@@ -21,37 +21,52 @@ class User extends CI_Controller {
 
 	 function __construct() {
               parent::__construct();
-              $this->load->helper('url');
-              $this->load->database();
+							$this->load->model('UserModel');
            }
-	public function index()
-	{
-		$this->load->view('user');
+	public function index(){
+		$result = $this->userModel->findAll();
+		$data['users'] = $result;
+		$this->load->view('user/user', $data);
+ }
+
+ public function new(){
+	 $this->load->view('user/userNew');
+}
+
+
+	public function insert(){
+    $post = $this->input->post();
+
+		$data['id'] = $post['id'];
+		$data['Username'] = $post['username'];
+		$data['password'] = $post['password'];
+
+    $this->userModel->insert($data);
+		redirect('/user');
 	}
 
-	public function insert()
-	{
-         $this->load->model('MaterialModel');
-        	$data = array(
-               'unit' => "2",
-                      'type' => "2",
-               'name' => "batu"
-            );
-      $this->MaterialModel->insert($data);
+
+	public function edit($id = NULL){
+		$this->load->helper('form');
+		$users = $this->userModel->findById($id);
+		$data['user']= $users;
+		$this->load->view('user/userEdit', $data);
+
+		// echo ($data[0]->name);
 	}
 
-	public function edit()
-	{
-		$this->load->view('material');
+	public function update(){
+
+		$data['id'] = $this->input->post('id');
+		$data['username'] = $this->input->post('username');
+		$data['password'] = $this->input->post('password');
+	 	$this->userModel->update($data, $data['id']);
+	 redirect('/user', 'refresh');
 	}
 
-	public function update()
+	public function delete($id = NULL)
 	{
-		$this->load->view('material');
-	}
-
-	public function delete()
-	{
-		$this->load->view('material');
+		$this->userModel->delete($id);
+		redirect('/user', 'refresh');
 	}
 }
