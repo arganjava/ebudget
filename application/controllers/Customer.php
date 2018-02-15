@@ -21,35 +21,57 @@ class Customer extends CI_Controller {
 
 	 function __construct() {
               parent::__construct();
+							$this->load->model('CustomerModel');
            }
-	public function index()
-	{
-		$this->load->view('customer');
+	public function index(){
+		$result = $this->CustomerModel->findAll();
+		$data['customers'] = $result;
+		$this->load->view('customer/customer', $data);
+ }
+
+ public function new(){
+	 $this->load->view('customer/customerNew');
+}
+
+
+	public function insert(){
+    $post = $this->input->post();
+
+		$data['name'] = $post['name'];
+		$data['address'] = $post['address'];
+		$data['hp'] = $post['hp'];
+		$data['email'] = $post['email'];
+		$data['acc_bank'] = $post['acc_bank'];
+
+    $this->CustomerModel->insert($data);
+		redirect('/customer');
 	}
 
-	public function insert()
-	{
-         $this->load->model('CustomerModel');
-        	$data = array(
-               'unit' => "2",
-                      'type' => "2",
-               'name' => "batu"
-            );
-      $this->CustomerModel->insert($data);
+
+	public function edit($id = NULL){
+		$this->load->helper('form');
+		$customers = $this->CustomerModel->findById($id);
+		$data['customer']= $customers;
+		$this->load->view('customer/customerEdit', $data);
+
+		// echo ($data[0]->name);
 	}
 
-	public function edit()
-	{
-		$this->load->view('customer');
+	public function update(){
+
+		$data['id'] = $this->input->post('id');
+		$data['name'] = $this->input->post('name');
+		$data['address'] = $this->input->post('address');
+		$data['hp'] = $this->input->post('hp');
+		$data['email'] = $this->input->post('email');
+		$data['acc_bank'] = $this->input->post('acc_bank');
+	 	$this->CustomerModel->update($data, $data['id']);
+	 redirect('/customer', 'refresh');
 	}
 
-	public function update()
+	public function delete($id = NULL)
 	{
-		$this->load->view('customer');
-	}
-
-	public function delete()
-	{
-		$this->load->view('customer');
+		$this->CustomerModel->delete($id);
+		redirect('/customer', 'refresh');
 	}
 }

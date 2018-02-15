@@ -1,7 +1,7 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class Project extends CI_Controller {
+class Supplier extends CI_Controller {
 
 	/**
 	 * Index Page for this controller.
@@ -20,16 +20,26 @@ class Project extends CI_Controller {
 	 */
 
 	 function __construct() {
-			  parent::__construct();
-			  $this->load->model('ProjectModel');
+              parent::__construct();
+							$this->load->model('supplierModel');
            }
-	public function index()
-	{
-		$result = $this->ProjectModel->findAll();
-         $data['projects'] = $result;
-		$this->load->view('project/project', $data);
-	}
+	public function index(){
+		$result = $this->supplierModel->findAll();
+		$data['supliers'] = $result;
+		$this->load->view('supplier', $data);
+ }
 
+
+	public function insert()
+	{
+         $this->load->model('MaterialModel');
+        	$data = array(
+               'unit' => "2",
+                      'type' => "2",
+               'name' => "batu"
+            );
+      $this->MaterialModel->insert($data);
+	}
 
 	public function edit()
 	{
@@ -46,15 +56,3 @@ class Project extends CI_Controller {
 		$this->load->view('material');
 	}
 }
-
-	public function insert(){
-    $post = $this->input->post();
-
-		$data['project_name'] = $post['project_name'];
-		$data['term'] = $post['term'];
-		$data['est_duration'] = $post['est_duration'];
-		$data['est_profit'] = $post['est_profit'];
-		$data['customer_id'] = $post['customer_id'];
-    $this->ProjectModel->insert($data);
-		redirect('/project');
-	}

@@ -29,10 +29,10 @@ class Partner extends CI_Controller {
 	{
 		$result = $this->PartnerModel->findAll();
 				$data['partners'] = $result;
-				$this->load->view('partner', $data);
+				$this->load->view('Partner', $data);
 	}
 
-	public function insert()
+	public function insert($data)
 	{
         	$data = array(
                'unit' => "2",
