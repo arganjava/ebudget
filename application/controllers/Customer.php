@@ -29,27 +29,27 @@ class Customer extends CI_Controller {
 
 	public function insert()
 	{
-         $this->load->model('MaterialModel');
+         $this->load->model('CustomerModel');
         	$data = array(
                'unit' => "2",
                       'type' => "2",
                'name' => "batu"
             );
-      $this->MaterialModel->insert($data);
+      $this->CustomerModel->insert($data);
 	}
 
 	public function edit()
 	{
-		$this->load->view('material');
+		$this->load->view('customer');
 	}
 
 	public function update()
 	{
-		$this->load->view('material');
+		$this->load->view('customer');
 	}
 
 	public function delete()
 	{
-		$this->load->view('material');
+		$this->load->view('customer');
 	}
 }
