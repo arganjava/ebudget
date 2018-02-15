@@ -5,25 +5,49 @@
 <div class="content-wrapper">
 <div class="box box-info">
             <div class="box-header with-border">
-              <h3 class="box-title">Project Create Form</h3>
+              <h3 class="box-title">Project</h3>
             </div>
             <!-- /.box-header -->
             <!-- form start -->
             <form class="form-horizontal" action="<?php echo site_url('project/insert');?>" method="post" >
               <div class="box-body">
                 <div class="form-group">
-                  <label for="inputEmail3" class="col-sm-2 control-label">Name</label>
+                  <label for="inputEmail3" class="col-sm-2 control-label">customer id</label>
 
                   <div class="col-sm-10">
                     <input required name="project_name" class="form-control" id="inputEmail3" placeholder="Project Name" type="text">
                   </div>
                 </div>
                 <div class="form-group">
-                  <label for="inputPassword3" class="col-sm-2 control-label">Term</label>
+                  <label for="inputPassword3" class="col-sm-2 control-label">Project_name</label>
 
                   <div class="col-sm-10">
                     <!-- <input name="address" class="form-control" id="inputPassword3" placeholder="Buying Price" type="text"> -->
-                    <textarea name="term" class="form-control" id="inputPassword3" placeholder="Term" type="text"></textarea>
+                    <textarea name="project_name" class="form-control" id="inputPassword3" placeholder="project name" type="text"></textarea>
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label for="inputPassword3" class="col-sm-2 control-label">Propose value</label>
+
+                  <div class="col-sm-10">
+                    <!-- <input name="address" class="form-control" id="inputPassword3" placeholder="Buying Price" type="text"> -->
+                    <textarea name="propose_value" class="form-control" id="inputPassword3" placeholder="propose_value" type="text"></textarea>
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label for="inputPassword3" class="col-sm-2 control-label">Propose_value</label>
+
+                  <div class="col-sm-10">
+                    <!-- <input name="address" class="form-control" id="inputPassword3" placeholder="Buying Price" type="text"> -->
+                    <textarea name="propose_value" class="form-control" id="inputPassword3" placeholder="propose value" type="text"></textarea>
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label for="inputPassword3" class="col-sm-2 control-label">Est.profit</label>
+
+                  <div class="col-sm-10">
+                    <!-- <input name="address" class="form-control" id="inputPassword3" placeholder="Buying Price" type="text"> -->
+                    <textarea name="est_profit" class="form-control" id="inputPassword3" placeholder="Term" type="est. profit"></textarea>
                   </div>
                 </div>
                 <div class="form-group">
@@ -34,10 +58,10 @@
                   </div>
                 </div>
                 <div class="form-group">
-                  <label for="inputPassword3" class="col-sm-2 control-label">Est. Profit</label>
+                  <label for="inputPassword3" class="col-sm-2 control-label">term</label>
 
                   <div class="col-sm-10">
-                    <input name="est_profit" class="form-control" id="inputPassword3" placeholder="Est Profit" type="text">
+                    <input name="term" class="form-control" id="inputPassword3" placeholder="term" type="text">
                   </div>
                 </div>
                 <div class="form-group">
@@ -55,7 +79,7 @@
               </div>
               <!-- /.box-body -->
               <div class="box-footer">
-                <a href="<?php echo site_url('material');?>" class="btn btn-danger"> Cancel</a>
+                <a href="<?php echo site_url('project');?>" class="btn btn-danger"> Cancel</a>
                 <button type="submit" class="btn btn-info pull-right">Save</button>
               </div>
               <!-- /.box-footer -->

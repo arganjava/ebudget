@@ -30,6 +30,7 @@
                   <th>Address</th>
                   <th>Hp</th>
                   <th>Email</th>
+                  <th>Acc. Bank</th>
                                     <th>Action</th>
                 </tr>
          <?php
@@ -40,6 +41,7 @@ foreach($customers as $customer) {
                                                echo "<td>".$customer->address."</td>";
                                                echo "<td>".$customer->hp."</td>";
                                                echo "<td>".$customer->email."</td>";
+                                               echo "<td>".$customer->acc_bank."</td>";
                                                echo "<td><a class='label label-primary' href = '".base_url()."customer/edit/"
                                                                  .$customer->id."'>Edit</a> ";
                                                               echo "<a class='label label-danger' href = '".base_url()."customer/delete/"

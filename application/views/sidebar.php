@@ -17,11 +17,6 @@
         <ul class="sidebar-menu">
             <li class="header">Master Data</li>
             <li>
-                   <a href="<?php echo site_url('budget');?>">
-                                <i class="fa fa-fw fa-user"></i> <span>Budget</span>
-                            </a>
-           </li>
-            <li>
                 <a href="<?php echo site_url('material');?>">
                     <i class="fa fa-fw fa-user"></i> <span>Material</span>
                 </a>
@@ -37,35 +32,10 @@
                             </a>
             </li>
            <li>
-                  <a href="<?php echo site_url('expense');?>">
-                               <i class="fa fa-fw fa-user"></i> <span>Expense</span>
-                           </a>
-          </li>
-          <li>
-                 <a href="<?php echo site_url('manpower_expense');?>">
-                              <i class="fa fa-fw fa-user"></i> <span>Man Power Expense</span>
-                          </a>
-         </li>
-         <li>
-                <a href="<?php echo site_url('material_project');?>">
-                             <i class="fa fa-fw fa-user"></i> <span>Material Project</span>
-                         </a>
-        </li>
-        <li>
-                <a href="<?php echo site_url('purchase');?>">
-                            <i class="fa fa-fw fa-user"></i> <span>purchase</span>
-                        </a>
-        </li>
-        <li>
-               <a href="<?php echo site_url('material_purchase');?>">
-                            <i class="fa fa-fw fa-user"></i> <span>material purchase</span>
-                        </a>
-       </li>
-       <li>
               <a href="<?php echo site_url('supplier');?>">
                            <i class="fa fa-fw fa-user"></i> <span>supplier</span>
                        </a>
-      </li>
+             </li>
              <li>
                              <a href="<?php echo site_url('user');?>">
                                  <i class="fa fa-fw fa-user"></i> <span>user</span>

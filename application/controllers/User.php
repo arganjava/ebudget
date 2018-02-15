@@ -24,7 +24,7 @@ class User extends CI_Controller {
 							$this->load->model('UserModel');
            }
 	public function index(){
-		$result = $this->userModel->findAll();
+		$result = $this->UserModel->findAll();
 		$data['users'] = $result;
 		$this->load->view('user/user', $data);
  }
@@ -41,15 +41,15 @@ class User extends CI_Controller {
 		$data['Username'] = $post['username'];
 		$data['password'] = $post['password'];
 
-    $this->userModel->insert($data);
+    $this->UserModel->insert($data);
 		redirect('/user');
 	}
 
 
 	public function edit($id = NULL){
 		$this->load->helper('form');
-		$users = $this->userModel->findById($id);
-		$data['user']= $users;
+		$users = $this->UserModel->findById($id);
+		$data['users']= $result;
 		$this->load->view('user/userEdit', $data);
 
 		// echo ($data[0]->name);
@@ -60,13 +60,13 @@ class User extends CI_Controller {
 		$data['id'] = $this->input->post('id');
 		$data['username'] = $this->input->post('username');
 		$data['password'] = $this->input->post('password');
-	 	$this->userModel->update($data, $data['id']);
+	 	$this->UserModel->update($data, $data['id']);
 	 redirect('/user', 'refresh');
 	}
 
 	public function delete($id = NULL)
 	{
-		$this->userModel->delete($id);
+		$this->UserModel->delete($id);
 		redirect('/user', 'refresh');
 	}
 }

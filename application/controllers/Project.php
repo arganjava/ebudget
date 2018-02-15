@@ -33,28 +33,35 @@ class Project extends CI_Controller {
 
 	public function edit()
 	{
-		$this->load->view('material');
+		$this->load->view('project');
 	}
 
 	public function update()
 	{
-		$this->load->view('material');
+		$this->load->view('project');
 	}
 
 	public function delete()
 	{
-		$this->load->view('material');
+		$this->load->view('project');
 	}
-}
+
 
 	public function insert(){
     $post = $this->input->post();
 
-		$data['project_name'] = $post['project_name'];
-		$data['term'] = $post['term'];
-		$data['est_duration'] = $post['est_duration'];
-		$data['est_profit'] = $post['est_profit'];
+		$data['project_id'] = $post['project_id'];
 		$data['customer_id'] = $post['customer_id'];
+		$data['project_name'] = $post['project_name'];
+		$data['propose_value'] = $post['propose_value'];
+		$data['est_profit'] = $post['est_profit'];
+		$data['term'] = $post['term'];
+		$data['date'] = $post['date'];
+		$data['pic'] = $post['pic'];
+		$data['design_photo'] = $post['design_photo'];
+		$data['confirm'] = $post['confirm'];
+
     $this->ProjectModel->insert($data);
 		redirect('/project');
 	}
+}

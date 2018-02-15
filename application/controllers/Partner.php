@@ -29,10 +29,10 @@ class Partner extends CI_Controller {
 	{
 		$result = $this->PartnerModel->findAll();
 				$data['partners'] = $result;
-				$this->load->view('Partner', $data);
+				$this->load->view('partner', $data);
 	}
 
-	public function insert($data)
+	public function insert()
 	{
         	$data = array(
                'unit' => "2",
@@ -44,16 +44,17 @@ class Partner extends CI_Controller {
 
 	public function edit()
 	{
-		$this->load->view('material');
+		$this->load->view('partner');
 	}
 
 	public function update()
 	{
-		$this->load->view('material');
+		$this->load->view('partner');
 	}
 
 	public function delete()
 	{
-		$this->load->view('material');
+		$this->load->view('partner');
+		$this->db->delete("partner", "id = ".$id);
 	}
 }
