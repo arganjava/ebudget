@@ -21,7 +21,16 @@ class Project extends CI_Controller {
 
 	 function __construct() {
 			  parent::__construct();
+			  $this->load->library('session');
+
 			  $this->load->model('ProjectModel');
+			  $this->load->model('MaterialModel');
+			  $this->load->model('PartnerModel');
+			  $resultMaterial = $this->MaterialModel->findAll();
+			  $resultManpower = $this->PartnerModel->findAll();
+			  $this->session->set_userdata('materials', $resultMaterial);
+			  $this->session->set_userdata('manpowers', $resultManpower);
+
            }
 	public function index()
 	{
@@ -38,6 +47,41 @@ class Project extends CI_Controller {
                'name' => "batu"
             );
       $this->MaterialModel->insert($data);
+	}
+
+	public function new()
+	{
+		$this->session->set_userdata('materialLIst', []);
+		$this->session->set_userdata('manpowerLIst', []);
+         $this->load->view('project/projectNew');
+	}
+
+	public function addRowMaterial()
+	{
+		$this->session->set_userdata('materialLIst', []);
+		$this->session->set_userdata('manpowerLIst', []);
+         $this->load->view('project/projectNew');
+	}
+
+	public function deleteRowMaterial()
+	{
+		$this->session->set_userdata('materialLIst', []);
+		$this->session->set_userdata('manpowerLIst', []);
+         $this->load->view('project/projectNew');
+	}
+
+	public function addRowManpower()
+	{
+		$this->session->set_userdata('materialLIst', []);
+		$this->session->set_userdata('manpowerLIst', []);
+         $this->load->view('project/projectNew');
+	}
+
+	public function deleteRowManpower()
+	{
+		$this->session->set_userdata('materialLIst', []);
+		$this->session->set_userdata('manpowerLIst', []);
+         $this->load->view('project/projectNew');
 	}
 
 	public function edit()

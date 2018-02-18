@@ -9,7 +9,7 @@
             <div class="box-header">
               <h3 class="box-title">Project</h3>
  <div class="input-group-btn">
-                      <a href="<?php echo site_url('material/new');?>" class="btn btn-success"> <i class="fa fa-plus"></i> New</a>
+                      <a href="<?php echo site_url('project/new');?>" class="btn btn-success"> <i class="fa fa-plus"></i> New</a>
                   </div>
               <div class="box-tools">
                 <div class="input-group input-group-sm" style="width: 150px;">
