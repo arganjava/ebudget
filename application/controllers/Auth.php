@@ -40,7 +40,7 @@ class Auth extends CI_Controller {
 			$this->session->set_userdata('user_session', $username);
 			redirect('/', 'refresh');
 		}else{
-			redirect('/auth/login', 'refresh');
+			redirect('/auth', 'refresh');
 		}
     }
 
