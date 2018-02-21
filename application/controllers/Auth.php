@@ -1,7 +1,7 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class Welcome extends CI_Controller {
+class Auth extends CI_Controller {
 
 	/**
 	 * Index Page for this controller.
@@ -21,26 +21,33 @@ class Welcome extends CI_Controller {
 
 	 function __construct() {
 				   parent::__construct();
+				   $CI = & get_instance();
+				   $this->load->library('session');
                    $this->load->helper('url');
-				   $this->load->database();
-				   $user_session = $this->session->userdata('user_session');
-				   if($user_session == null){
-					redirect('/auth', 'refresh');
 				}
-                   }
 	public function index()
 	{
-		$this->load->view('welcome_message');
+		$this->load->view('login');
 	}
 
-	public function hello($user = 'John Doe')
+	public function login()
     {
-        echo "Hello {$user}!";
+		$username = $this->input->post('username');
+		$password = $this->input->post('password');
+
+		if($username == "admin" && $password == "admin"){
+			
+			$this->session->set_userdata('user_session', $username);
+			redirect('/', 'refresh');
+		}else{
+			redirect('/auth/login', 'refresh');
+		}
     }
 
-    public function hello2($user = 'John Doe')
+    public function logout()
         {
-            echo "Hello2 {$user}!";
-        }
+			$this->session->sess_destroy();
+			redirect('/auth', 'refresh');
+		}
 
 }
