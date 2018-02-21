@@ -22,11 +22,17 @@ class User extends CI_Controller {
 	 function __construct() {
               parent::__construct();
               $this->load->helper('url');
-              $this->load->database();
+			  $this->load->model('UserModel');
+			  $user_session = $this->session->userdata('user_session');
+				   if($user_session == null){
+					redirect('/auth', 'refresh');
+					}
            }
 	public function index()
 	{
-		$this->load->view('user');
+		$result = $this->UserModel->findAll();
+		$data['users'] = $result;
+		$this->load->view('user', $data);
 	}
 
 	public function insert()

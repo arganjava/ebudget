@@ -1,7 +1,7 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class Customer extends CI_Controller {
+class Supplier extends CI_Controller {
 
 	/**
 	 * Index Page for this controller.
@@ -20,29 +20,29 @@ class Customer extends CI_Controller {
 	 */
 
 	 function __construct() {
-			  parent::__construct();
-			  $this->load->model('CustomerModel');
-			  $user_session = $this->session->userdata('user_session');
-			  if($user_session == null){
-			   redirect('/auth', 'refresh');
-			   }
+              parent::__construct();
+							$this->load->model('SupplierModel');
+							$user_session = $this->session->userdata('user_session');
+							if($user_session == null){
+							 redirect('/auth', 'refresh');
+							 }
+
            }
 	public function index()
 	{
-		$result = $this->CustomerModel->findAll();
-		$data['customers'] = $result;
-		$this->load->view('customer', $data);
+		$result = $this->SupplierModel->findAll();
+				$data['suppliers'] = $result;
+				$this->load->view('supplier', $data);
 	}
 
 	public function insert()
 	{
-         $this->load->model('MaterialModel');
         	$data = array(
                'unit' => "2",
                       'type' => "2",
                'name' => "batu"
             );
-      $this->MaterialModel->insert($data);
+      $this->PartnerModel->insert($data);
 	}
 
 	public function edit()

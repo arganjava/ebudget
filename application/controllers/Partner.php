@@ -22,8 +22,10 @@ class Partner extends CI_Controller {
 	 function __construct() {
               parent::__construct();
 							$this->load->model('PartnerModel');
-
-
+							$user_session = $this->session->userdata('user_session');
+							if($user_session == null){
+							 redirect('/auth', 'refresh');
+							 }
            }
 	public function index()
 	{

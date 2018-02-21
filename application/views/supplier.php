@@ -7,7 +7,7 @@
         <div class="col-xs-12">
           <div class="box">
             <div class="box-header">
-              <h3 class="box-title">Customer</h3>
+              <h3 class="box-title">Supplier</h3>
 
               <div class="box-tools">
                 <div class="input-group input-group-sm" style="width: 150px;">
@@ -30,13 +30,13 @@
                   <th>email</th>
                 </tr>
          <?php
-foreach($customers as $customer) {
+foreach($suppliers as $supplier) {
                                                echo "<tr>";
-                                               echo "<td>".$customer->id."</td>";
-                                               echo "<td>".$customer->name."</td>";
-                                               echo "<td>".$customer->address."</td>";
-                                               echo "<td>".$customer->hp."</td>";
-                                               echo "<td>".$customer->email."</td>";
+                                               echo "<td>".$supplier->id."</td>";
+                                               echo "<td>".$supplier->name."</td>";
+                                               echo "<td>".$supplier->address."</td>";
+                                               echo "<td>".$supplier->hp."</td>";
+                                               echo "<td>".$supplier->email."</td>";
 
                                                echo "<tr>";
                                             }

@@ -34,7 +34,12 @@
             </li>
              <li>
                              <a href="<?php echo site_url('user');?>">
-                                 <i class="fa fa-fw fa-user"></i> <span>user</span>
+                                 <i class="fa fa-fw fa-user"></i> <span>User</span>
+                             </a>
+            </li>
+            <li>
+                             <a href="<?php echo site_url('supplier');?>">
+                                 <i class="fa fa-fw fa-user"></i> <span>Supplier</span>
                              </a>
             </li>
 
